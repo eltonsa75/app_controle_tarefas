@@ -53,6 +53,10 @@ class TarefaController extends Controller
      */
     public function store(Request $request)
     {
+        $dados = $request->all('tarefa', 'data_limite_conclusao');
+        $dados['user_id'] = auth()->user()->id;
+
+
         $tarefa = Tarefa::create($request->all());
         $destinario = auth()->user()->email; //e-mail do usuário logado
         Mail::to($destinario)->send(new NovaTarefaMail($tarefa));
@@ -69,7 +73,8 @@ class TarefaController extends Controller
      */
     public function show(Tarefa $tarefa)
     {
-        dd($tarefa->getAttributes());
+        //dd($tarefa->getAttributes());
+        return view('tarefa.show', ['tarefa' => $tarefa]);
     }
 
     /**
