@@ -15,7 +15,8 @@
         "laravel/framework": "^8.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "3.2",
-        "maatwebsite/excel": "^3.1"
+        "maatwebsite/excel": "^3.1",
+        "mpdf/mpdf": "8.0.10"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",

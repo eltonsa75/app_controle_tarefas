@@ -128,15 +128,10 @@ class TarefaController extends Controller
     {
         $nome_arquivo = 'lista_de_tarefas_' . date('Y-m-d_H-i-s') . '.' . $extensao;
 
-        if($extensao == 'xlsx'){
-         $nome_arquivo .= '.'.$extensao;
-
-        } else if($extensao == 'csv'){
-            $nome_arquivo .= '.'.$extensao;
-        } else {
-            return redirect()->route('tarefa.index');
+        if(in_array($extensao, ['xlsx', 'csv', 'pdf'])){
+            return Excel::download(new TarefasExport, 'lista_de_tarefas.'.$nome_arquivo);
         }
-        return Excel::download(new TarefasExport, $nome_arquivo);
+        return redirect()->route('tarefa.index');
         }
 
 }
