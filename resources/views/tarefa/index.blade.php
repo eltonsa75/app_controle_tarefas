@@ -12,7 +12,8 @@
                             </div>
                             <div class="col-md-6">
                                 <a href="{{ route('tarefa.create') }}" class="btn btn-primary float-right mr-3">Nova Tarefa</a>
-                                <a href="{{ route('tarefa.exportacao') }}" class="btn btn-success float-right mr-3">XLSX</a>
+                                <a href="{{ route('tarefa.exportacao', ['extensao' => 'xlsx'])}}" class="btn btn-success float-right mr-3">XLSX</a>
+                                <a href="{{ route('tarefa.exportacao', ['extensao' => 'csv'])}}" class="btn btn-danger float-right mr-3">CSV</a>
                             </div>
                     <div class="card-body">
                         <table class="table">
