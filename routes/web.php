@@ -25,7 +25,10 @@ Auth::routes(['verify' => true]);
 ->middleware('verified');
  */
 
-Route::resource('tarefa', 'App\Http\Controllers\TarefaController')
+Route::get('tarefa/exportacao', 'App\Http\Controllers\TarefaController@exportacao')
+->name('tarefa.exportacao')
+->middleware('verified');
+ Route::resource('tarefa', 'App\Http\Controllers\TarefaController')
 ->middleware('verified');
 
 Route::get('/mensagem-teste', function () {
@@ -33,3 +36,5 @@ Route::get('/mensagem-teste', function () {
     Mail::to('eltonsa75@hotmail.com')->send(new MensagemTesteMail());
     return 'Mensagem enviada com sucesso!';
 });
+
+
